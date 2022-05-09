@@ -18,7 +18,7 @@ from aufApp import views
 
 urlpatterns = [
     path('', views.home, name="inicio"),
-    path('', views.equipos, name="equipos"),
-    path('', views.estadios, name="estadios"),
-    path('', views.futbolistas, name="futbolistas"),
+    path('equipos', views.equipos, name="equipos"),
+    path('estadios', views.estadios, name="estadios"),
+    path('futbolistas', views.futbolistas, name="futbolistas"),
 ]
