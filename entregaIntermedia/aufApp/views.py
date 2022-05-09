@@ -7,3 +7,12 @@ from .forms import *
 
 def home(request):
     return render(request,'home.html')
+
+def equipos(request):
+    return render(request,'home.html')
+
+def estadios(request):
+    return render(request,'home.html')
+
+def futbolistas(request):
+    return render(request,'home.html')
