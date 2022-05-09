@@ -44,3 +44,12 @@ def futbolistas(request):
     else:
         formulario = FutbolistaFormulario()
         return render(request,'futbolistas.html',{'formulario':formulario})
+    
+def buscarFutbolistas(request):
+    if request.GET['apellido']:
+        apellido  = request.GET['apellido']
+        futbolistas = Futbolista.objects.filter(apellido=apellido)
+        return render(request,'futbolistas.html',{"futbolistas":futbolistas,"apellido":apellido})   
+    else:
+        respuesta = "No se ingreso ninguna apellido"
+        return render(request,'futbolistas.html',{"respuesta":respuesta})    

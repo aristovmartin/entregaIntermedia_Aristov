@@ -12,4 +12,30 @@
     <input type="submit" value="Enviar">
 
 </form>
+
+
+<form action="{% url 'buscarFutbolistas' %}" method="get">
+
+    <input type="text" placeholder="Apellido" name="apellido" id="apellido">
+
+    <input type="submit" value="Buscar">
+
+</form>
+
+{% if futbolistas %}
+    {% if apellido %}
+        <h1 style="color:white"> Estamos buscando los futbolistas con apellido: {{apellido}} </h1>
+        <ul>
+            {% for futbolista in futbolistas %}
+            <li style="color:white">{{futbolista.nombre}} </li>   
+            <li style="color:white">{{futbolista.apellido}} </li>
+            <li style="color:white">{{futbolista.fechaNacimiento}} </li>
+            <li style="color:white">{{futbolista.email}} </li>
+            <br>
+            {% endfor %}   
+        </ul>
+    {% endif %}
+    {% else %}
+        <p style="color:red"> No se encontraron resultados para ese apellido </p>
+{% endif %}
 {% endblock %}
