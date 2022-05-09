@@ -12,4 +12,29 @@
     <input type="submit" value="Enviar">
 
 </form>
+
+<form action="{% url 'buscarEquipos' %}" method="get">
+
+    <input type="text" placeholder="Nombre" name="nombre" id="nombre">
+
+    <input type="submit" value="Buscar">
+
+</form>
+
+{% if equipos %}
+    {% if nombre %}
+        <h1 style="color:white"> Estamos buscando los equipos con nombre: {{nombre}} </h1>
+        <ul>
+            {% for equipo in equipos %}
+            <li style="color:white">{{equipo.nombre}} </li>   
+            <li style="color:white">{{equipo.direccionSede}} </li>
+            <li style="color:white">{{equipo.email}} </li>
+            <li style="color:white">{{equipo.fechaFundacion}} </li>
+            <br>
+            {% endfor %}   
+        </ul>
+    {% endif %}
+    {% else %}
+        <p style="color:black"> No se encontraron resultados para ese nombre </p>
+{% endif %}
 {% endblock %}

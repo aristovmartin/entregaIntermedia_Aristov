@@ -22,4 +22,6 @@ urlpatterns = [
     path('estadios', views.estadios, name="estadios"),
     path('futbolistas', views.futbolistas, name="futbolistas"),
     path('buscarFutbolistas', views.buscarFutbolistas, name="buscarFutbolistas"),
+    path('buscarEstadios', views.buscarEstadios, name="buscarEstadios"),
+    path('buscarEquipos', views.buscarEquipos, name="buscarEquipos"),
 ]

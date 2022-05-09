@@ -51,5 +51,23 @@ def buscarFutbolistas(request):
         futbolistas = Futbolista.objects.filter(apellido=apellido)
         return render(request,'futbolistas.html',{"futbolistas":futbolistas,"apellido":apellido})   
     else:
-        respuesta = "No se ingreso ninguna apellido"
+        respuesta = "No se ingreso ningun apellido"
         return render(request,'futbolistas.html',{"respuesta":respuesta})    
+    
+def buscarEstadios(request):
+    if request.GET['nombre']:
+        nombre  = request.GET['nombre']
+        estadios = Estadio.objects.filter(nombre=nombre)
+        return render(request,'estadios.html',{"estadios":estadios,"nombre":nombre})   
+    else:
+        respuesta = "No se ingreso ningun nombre"
+        return render(request,'estadios.html',{"respuesta":respuesta})  
+    
+def buscarEquipos(request):
+    if request.GET['nombre']:
+        nombre  = request.GET['nombre']
+        equipos = Equipos.objects.filter(nombre=nombre)
+        return render(request,'equipos.html',{"equipos":equipos,"nombre":nombre})   
+    else:
+        respuesta = "No se ingreso ningun nombre"
+        return render(request,'equipos.html',{"respuesta":respuesta})  
